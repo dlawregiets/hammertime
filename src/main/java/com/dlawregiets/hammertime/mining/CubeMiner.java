@@ -1,8 +1,8 @@
-package dev.hammertime.mining;
+package com.dlawregiets.hammertime.mining;
 
-import dev.hammertime.config.HammerConfig;
-import dev.hammertime.config.PlayerSettings;
-import dev.hammertime.config.PlayerSettingsStore;
+import com.dlawregiets.hammertime.config.HammerConfig;
+import com.dlawregiets.hammertime.config.PlayerSettings;
+import com.dlawregiets.hammertime.config.PlayerSettingsStore;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;

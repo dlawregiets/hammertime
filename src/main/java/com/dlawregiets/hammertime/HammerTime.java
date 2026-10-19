@@ -1,9 +1,9 @@
-package dev.hammertime;
+package com.dlawregiets.hammertime;
 
-import dev.hammertime.command.HammerCommand;
-import dev.hammertime.config.HammerConfig;
-import dev.hammertime.config.PlayerSettingsStore;
-import dev.hammertime.mining.CubeMiner;
+import com.dlawregiets.hammertime.command.HammerCommand;
+import com.dlawregiets.hammertime.config.HammerConfig;
+import com.dlawregiets.hammertime.config.PlayerSettingsStore;
+import com.dlawregiets.hammertime.mining.CubeMiner;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;

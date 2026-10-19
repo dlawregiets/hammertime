@@ -1,10 +1,10 @@
-package dev.hammertime.command;
+package com.dlawregiets.hammertime.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
-import dev.hammertime.config.HammerConfig;
-import dev.hammertime.config.PlayerSettings;
-import dev.hammertime.config.PlayerSettingsStore;
+import com.dlawregiets.hammertime.config.HammerConfig;
+import com.dlawregiets.hammertime.config.PlayerSettings;
+import com.dlawregiets.hammertime.config.PlayerSettingsStore;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;

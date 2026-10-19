@@ -1,5 +1,24 @@
+# Gradle
 .gradle/
 build/
+out/
+
+# Minecraft run directory and logs
 run/
+logs/
+*.log
+
+# IDE
 *.iml
 .idea/
+.vscode/
+.settings/
+.project
+.classpath
+
+# Java
+*.class
+
+# OS
+.DS_Store
+Thumbs.db

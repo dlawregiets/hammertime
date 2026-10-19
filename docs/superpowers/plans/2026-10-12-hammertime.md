@@ -19,7 +19,7 @@
 - Loom plugin id is `net.fabricmc.fabric-loom`; use plain `implementation` (NOT `modImplementation`) and plain `jar` (NOT `remapJar`).
 - Only runtime dependency: **Fabric API**. JSON via bundled Gson (`com.google.gson`). Test-only dependency: JUnit 5.
 - `fabric.mod.json` MUST set `"environment": "server"` and declare no client entrypoint and no mixins.
-- Mod id: `hammertime`. Package root: `dev.hammertime`.
+- Mod id: `hammertime`. Package root: `com.dlawregiets.hammertime`.
 - Mod id / archive name: `hammertime`.
 - The cube's target block sits at the **center of the front face**; the cube extends **into the wall** (`depth` offsets `0..size-1`). Match rule is **exact same `Block`** (state ignored).
 
@@ -67,7 +67,7 @@ Inputs/conditions the spec implies but unit tests cannot fully exercise — veri
 
 **Interfaces:**
 - Consumes: nothing.
-- Produces: a compiling Fabric mod with entrypoint class `dev.hammertime.HammerTime` implementing `net.fabricmc.api.ModInitializer`.
+- Produces: a compiling Fabric mod with entrypoint class `com.dlawregiets.hammertime.HammerTime` implementing `net.fabricmc.api.ModInitializer`.
 
 - [ ] **Step 1: Fetch the Gradle wrapper from the Fabric example mod**
 
@@ -109,7 +109,7 @@ loom_version=1.18-SNAPSHOT
 
 # Mod properties
 mod_version=1.0.0
-maven_group=dev.hammertime
+maven_group=com.dlawregiets.hammertime
 archives_base_name=hammertime
 
 # Dependencies
@@ -184,11 +184,11 @@ jar {
     "authors": [
         "HammerTime"
     ],
-    "license": "MIT",
+    "license": "Apache-2.0",
     "environment": "server",
     "entrypoints": {
         "main": [
-            "dev.hammertime.HammerTime"
+            "com.dlawregiets.hammertime.HammerTime"
         ]
     },
     "depends": {
@@ -203,7 +203,7 @@ jar {
 - [ ] **Step 6: Write the minimal `src/main/java/dev/hammertime/HammerTime.java`**
 
 ```java
-package dev.hammertime;
+package com.dlawregiets.hammertime;
 
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -232,7 +232,7 @@ run/
 .idea/
 ```
 
-`LICENSE`: standard MIT license text (Copyright (c) 2026 HammerTime).
+`LICENSE`: standard Apache License 2.0 text (Copyright 2026 HammerTime).
 
 `README.md`:
 
@@ -280,7 +280,7 @@ git commit -m "Scaffold Fabric 26.2 HammerTime project"
 `src/test/java/dev/hammertime/mining/CubeGeometryTest.java`:
 
 ```java
-package dev.hammertime.mining;
+package com.dlawregiets.hammertime.mining;
 
 import org.junit.jupiter.api.Test;
 
@@ -350,7 +350,7 @@ class CubeGeometryTest {
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `./gradlew test --tests 'dev.hammertime.mining.CubeGeometryTest' --no-daemon`
+Run: `./gradlew test --tests 'com.dlawregiets.hammertime.mining.CubeGeometryTest' --no-daemon`
 Expected: FAIL — compilation error, `CubeGeometry` does not exist.
 
 - [ ] **Step 3: Write the minimal implementation**
@@ -358,7 +358,7 @@ Expected: FAIL — compilation error, `CubeGeometry` does not exist.
 `src/main/java/dev/hammertime/mining/CubeGeometry.java`:
 
 ```java
-package dev.hammertime.mining;
+package com.dlawregiets.hammertime.mining;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -436,7 +436,7 @@ public final class CubeGeometry {
 
 - [ ] **Step 4: Run the test to verify it passes**
 
-Run: `./gradlew test --tests 'dev.hammertime.mining.CubeGeometryTest' --no-daemon`
+Run: `./gradlew test --tests 'com.dlawregiets.hammertime.mining.CubeGeometryTest' --no-daemon`
 Expected: PASS (5 tests).
 
 - [ ] **Step 5: Commit**
@@ -472,7 +472,7 @@ git commit -m "Add cube geometry with unit tests"
 `src/test/java/dev/hammertime/config/HammerConfigTest.java`:
 
 ```java
-package dev.hammertime.config;
+package com.dlawregiets.hammertime.config;
 
 import org.junit.jupiter.api.Test;
 
@@ -535,13 +535,13 @@ class HammerConfigTest {
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `./gradlew test --tests 'dev.hammertime.config.HammerConfigTest' --no-daemon`
+Run: `./gradlew test --tests 'com.dlawregiets.hammertime.config.HammerConfigTest' --no-daemon`
 Expected: FAIL — compilation error, `HammerConfig` / `PlayerSettingsStore` do not exist.
 
 - [ ] **Step 3: Write `PlayerSettings.java`**
 
 ```java
-package dev.hammertime.config;
+package com.dlawregiets.hammertime.config;
 
 /** Per-player HammerTime settings. */
 public record PlayerSettings(int size, boolean enabled) {
@@ -554,7 +554,7 @@ public record PlayerSettings(int size, boolean enabled) {
 - [ ] **Step 4: Write `HammerConfig.java`**
 
 ```java
-package dev.hammertime.config;
+package com.dlawregiets.hammertime.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -644,7 +644,7 @@ public final class HammerConfig {
 - [ ] **Step 5: Write `PlayerSettingsStore.java`**
 
 ```java
-package dev.hammertime.config;
+package com.dlawregiets.hammertime.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -727,7 +727,7 @@ public final class PlayerSettingsStore {
 
 - [ ] **Step 6: Run the tests to verify they pass**
 
-Run: `./gradlew test --tests 'dev.hammertime.config.HammerConfigTest' --no-daemon`
+Run: `./gradlew test --tests 'com.dlawregiets.hammertime.config.HammerConfigTest' --no-daemon`
 Expected: PASS (3 tests).
 
 - [ ] **Step 7: Commit**
@@ -757,11 +757,11 @@ git commit -m "Add global config and per-player settings store"
 `src/main/java/dev/hammertime/mining/CubeMiner.java`:
 
 ```java
-package dev.hammertime.mining;
+package com.dlawregiets.hammertime.mining;
 
-import dev.hammertime.config.HammerConfig;
-import dev.hammertime.config.PlayerSettings;
-import dev.hammertime.config.PlayerSettingsStore;
+import com.dlawregiets.hammertime.config.HammerConfig;
+import com.dlawregiets.hammertime.config.PlayerSettings;
+import com.dlawregiets.hammertime.config.PlayerSettingsStore;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
@@ -863,11 +863,11 @@ public final class CubeMiner {
 `src/main/java/dev/hammertime/HammerTime.java`:
 
 ```java
-package dev.hammertime;
+package com.dlawregiets.hammertime;
 
-import dev.hammertime.config.HammerConfig;
-import dev.hammertime.config.PlayerSettingsStore;
-import dev.hammertime.mining.CubeMiner;
+import com.dlawregiets.hammertime.config.HammerConfig;
+import com.dlawregiets.hammertime.config.PlayerSettingsStore;
+import com.dlawregiets.hammertime.mining.CubeMiner;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
@@ -969,13 +969,13 @@ git commit -m "Wire cube miner to the block-break event"
 `src/main/java/dev/hammertime/command/HammerCommand.java`:
 
 ```java
-package dev.hammertime.command;
+package com.dlawregiets.hammertime.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
-import dev.hammertime.config.HammerConfig;
-import dev.hammertime.config.PlayerSettings;
-import dev.hammertime.config.PlayerSettingsStore;
+import com.dlawregiets.hammertime.config.HammerConfig;
+import com.dlawregiets.hammertime.config.PlayerSettings;
+import com.dlawregiets.hammertime.config.PlayerSettingsStore;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
@@ -1066,7 +1066,7 @@ public final class HammerCommand {
 Add these imports:
 
 ```java
-import dev.hammertime.command.HammerCommand;
+import com.dlawregiets.hammertime.command.HammerCommand;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 ```
 

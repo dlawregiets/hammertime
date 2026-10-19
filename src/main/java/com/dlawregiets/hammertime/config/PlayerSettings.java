@@ -1,4 +1,4 @@
-package dev.hammertime.config;
+package com.dlawregiets.hammertime.config;
 
 /** Per-player HammerTime settings. */
 public record PlayerSettings(int size, boolean enabled) {

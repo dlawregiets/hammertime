@@ -1,4 +1,4 @@
-package dev.hammertime.config;
+package com.dlawregiets.hammertime.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

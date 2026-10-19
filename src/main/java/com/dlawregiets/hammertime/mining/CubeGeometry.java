@@ -1,4 +1,4 @@
-package dev.hammertime.mining;
+package com.dlawregiets.hammertime.mining;
 
 import java.util.ArrayList;
 import java.util.List;
