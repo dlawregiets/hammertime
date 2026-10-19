@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -62,5 +63,13 @@ class CubeGeometryTest {
     @Test
     void rejectsEvenSize() {
         assertThrows(IllegalArgumentException.class, () -> CubeGeometry.offsets(4, 0, 0, -1));
+    }
+
+    @Test
+    void dominantForwardPicksTheLookAxis() {
+        assertArrayEquals(new int[]{0, 0, -1}, CubeGeometry.dominantForward(0.0, 0.0, -1.0));
+        assertArrayEquals(new int[]{0, -1, 0}, CubeGeometry.dominantForward(0.0, -0.8, 0.2));
+        assertArrayEquals(new int[]{1, 0, 0}, CubeGeometry.dominantForward(0.9, 0.0, 0.1));
+        assertArrayEquals(new int[]{0, 1, 0}, CubeGeometry.dominantForward(0.0, 1.0, 0.0));
     }
 }

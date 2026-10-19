@@ -71,4 +71,21 @@ public final class CubeGeometry {
         }
         return result;
     }
+
+    /**
+     * Returns the dominant unit axis of a direction vector as {@code {fx, fy, fz}}.
+     * Ties are resolved in order x, then y, then z.
+     */
+    public static int[] dominantForward(double x, double y, double z) {
+        double ax = Math.abs(x);
+        double ay = Math.abs(y);
+        double az = Math.abs(z);
+        if (ax >= ay && ax >= az) {
+            return new int[]{x >= 0 ? 1 : -1, 0, 0};
+        }
+        if (ay >= az) {
+            return new int[]{0, y >= 0 ? 1 : -1, 0};
+        }
+        return new int[]{0, 0, z >= 0 ? 1 : -1};
+    }
 }
